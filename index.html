@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Corbin's page</title>
+        <style>
+            body {
+                background: rgb(125, 198, 205);
+                color: rgb(45, 45, 45);
+                padding: 10px;
+                font-family: arial;
+            }
+            #all-contents {
+                max-width: 800px;
+                margin: auto;
+            }
+        
+            /* navigation menu */
+            nav {
+                background: rgb(239, 80, 41);
+                margin: 0 auto;
+                display: flex;
+                padding: 10px;
+            }
+            h1 {
+                display: flex;
+                align-items: center;
+                color: white;
+                flex: 1;
+                margin: 0;
+            }
+            #nav-ul {
+                list-style-image: none;
+            }
+            .nav-li {
+                display: inline-block;
+                padding: 0 10px;
+            }
+            a {
+                text-decoration: none;
+                color: #fff;
+            }
+        
+            /* main container area beneath menu */
+            main {
+                background: rgb(245, 238, 219);
+                display: flex;
+            }
+            .sidebar {
+                margin-right: 25px;
+                padding: 10px;
+            }
+            .sidebar-img {
+                width: 200px;
+            }
+            .content {
+                flex: 1;
+                padding: 15px;
+            }
+            #interests {
+                border: 4px silver ridge;
+                padding: 8px;
+            }
+            h2, h3 {
+                margin: 0px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div id="all-contents"> 
+            <nav>
+                <header>Corbin's page</header>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                </ul>
+            </nav>
+            
+            <main>
+                <div class="sidebar">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf8t1xJVotVfAcjm97KgwXl1LGHbhZLWAOuzSLhO1NVoh7Qa9FHesM7j7nYLgx2ypmzCSemo3iGIRGxAH2FQ:https://lizerbramlaw.com/wp-content/uploads/2017/12/DD--e1514398423219.png&usqp=CAU">
+                </div>
+    
+                <div class="content">
+                    <header>Corbin</header>
+                        <p>studunt</p>
+                        <section class="interests">
+                            <header>Interests</header>
+                            <ul>
+                                <li>Interest 1</li>
+                                <li>Interest 2</li>
+                                <li>Interest 3</li>
+                            </ul>
+                        </section>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>

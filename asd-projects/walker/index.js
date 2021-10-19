@@ -12,16 +12,43 @@ function runProgram(){
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
   
   // Game Item Objects
-
+  var positionX = 0; // the x-coordinate location for the box
+  var speedX = 0; // the speed for the box along the x-axis
+  var positionY = 0; // the y-coordinate location for the box
+  var speedY = 0; // the speed for the box along the y-axis
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
-  $(document).on('eventType', handleEvent);                           // change 'eventType' to the type of event you want to handle
+  $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
+  function handleKeyDown(event) {  
+    if (event.which === KEY.LEFT) {
+      speedX = -5;
+      console.log("left pressed");
+    }
+    else if (event.which === KEY_RIGHT){
+      speedX = -5;
+      console.log("right pressed")
+  }
+  else if (event.which === KEY_UP){
+    speedX = -5;
+    console.log("up pressed")
+}
+else if (event.which === KEY_DOWN){
+  speedX = -5;
+  console.log("down pressed")
+}
+  }
 
+  var KEY = {
+    "LEFT": 37,
+    "UP": 38,
+    "RIGHT": 39,
+    "DOWN": 40,
+  }
   /* 
   On each "tick" of the timer, a new frame is dynamically drawn using JavaScript
   by calling this function and executing the code inside.
@@ -34,14 +61,35 @@ function runProgram(){
   /* 
   Called in response to events.
   */
-  function handleEvent(event) {
-
+  function handleKeyUp(event) {  
+    if (event.which === KEY.LEFT) {
+      speedX = 0;
+      speedY = 0;
+    }
+    else if (event.which === KEY_RIGHT){
+      speedX = 0;
+      speedY = 0;
+  }
+  else if (event.which === KEY_UP){
+    speedX = 0;
+    speedY = 0;
+}
+else if (event.which === KEY_DOWN){
+  speedX = 0;
+  speedY = 0;
+}
   }
 
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
+  function repositionGameItem() {
+    (positionX =+ speedX)
+    }
 
+  function redrawGameItem() {
+    $("#box").css("LEFT", positionX);
+  }
   
   function endGame() {
     // stop the interval timer

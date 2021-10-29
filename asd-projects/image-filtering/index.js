@@ -17,8 +17,8 @@ $(document).ready(function(){
 /////////////////////////////////////////////////////////
 
 // TODO 1, 2 & 4: Create the applyFilter function here
-
-
+function applyFilter();
+const image;
 // TODO 6: Create the applyFilterNoBackground function
 
 

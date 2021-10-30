@@ -20,7 +20,7 @@ function runProgram(){
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
-
+  $(document).on('keyup', handleKeyUp)
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -29,16 +29,16 @@ function runProgram(){
       speedX = -5;
       console.log("left pressed");
     }
-    else if (event.which === KEY_RIGHT){
-      speedX = -5;
+    else if (event.which === KEY.RIGHT){
+      speedX = 5;
       console.log("right pressed")
   }
-  else if (event.which === KEY_UP){
-    speedX = -5;
+  else if (event.which === KEY.UP){
+    speedY = -5;
     console.log("up pressed")
 }
-else if (event.which === KEY_DOWN){
-  speedX = -5;
+else if (event.which === KEY.DOWN){
+  speedY = 5;
   console.log("down pressed")
 }
   }
@@ -54,8 +54,8 @@ else if (event.which === KEY_DOWN){
   by calling this function and executing the code inside.
   */
   function newFrame() {
-    
-
+    repositionGameItem()
+    redrawGameItem()
   }
   
   /* 
@@ -66,15 +66,15 @@ else if (event.which === KEY_DOWN){
       speedX = 0;
       speedY = 0;
     }
-    else if (event.which === KEY_RIGHT){
+    else if (event.which === KEY.RIGHT){
       speedX = 0;
       speedY = 0;
   }
-  else if (event.which === KEY_UP){
+  else if (event.which === KEY.UP){
     speedX = 0;
     speedY = 0;
 }
-else if (event.which === KEY_DOWN){
+else if (event.which === KEY.DOWN){
   speedX = 0;
   speedY = 0;
 }
@@ -84,11 +84,13 @@ else if (event.which === KEY_DOWN){
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
   function repositionGameItem() {
-    (positionX =+ speedX)
+    positionX += speedX
+    positionY += speedY
     }
 
   function redrawGameItem() {
-    $("#box").css("LEFT", positionX);
+    $("#box").css("left", positionX);
+    $("#box").css("top",positionY)
   }
   
   function endGame() {
